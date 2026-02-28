@@ -1,68 +1,117 @@
+---
+layout: default
+title: Reverse Engineering the Dota 2 Patch Meta
+---
+
 # Reverse Engineering the Dota 2 Patch Meta
 
-Using 250,000 high-MMR matches, this project analyzes hero synergy, patch enablers, and counter-strategies in the current meta.
+Every Dota patch reshapes the battlefield. Heroes rise, drafts evolve, and new strategies emerge.  
+
+But what actually defines a meta?
+
+Using 250,000 high-MMR matches from the current patch, this analysis goes beyond raw winrates to uncover:
+
+- Which hero combinations truly overperform  
+- Which heroes act as structural enablers  
+- And who quietly counters the patch’s strongest anchors  
 
 ---
 
-## 1. Dataset & Objective
+## Are Heroes Actually Imbalanced?
 
-- 250,000 matches
-- Current patch
-- High MMR only
-- Goal: Identify statistically significant hero synergies and patch-defining heroes.
-
----
-
-## 2. Are Heroes Balanced?
+Before analyzing synergy, we need context.
 
 ![Hero Winrate Distribution](images/hero_winrate.png)
 
-Most heroes cluster around 50% winrate, indicating that major deviations are likely due to structural synergy rather than individual imbalance.
+Most heroes cluster around a 50% winrate.  
+The patch appears balanced at an individual level.
+
+So if certain combinations dramatically outperform expectations — that’s not coincidence.
+
+That’s structure.
 
 ---
 
-## 3. Quantifying Synergy
+## Measuring True Synergy
 
-We define synergy using a Z-score:
+Raw winrate isn’t enough.
+
+Instead, synergy was quantified using a statistical Z-score:
 
 Z = (Observed - Expected) / Standard Error
 
-This adjusts for:
-- Unequal sample sizes
-- Baseline hero strength
-- Random variance
+This controls for:
+- Baseline hero strength  
+- Unequal sample sizes  
+- Random variance  
+
+Only statistically significant deviations were considered.
 
 ---
 
-## 4. Strongest Hero Synergies
+## The Strongest Hero Synergies
 
 ![Top Synergies](images/top_synergy.png)
 
-These combinations significantly outperform expectations even after statistical correction.
+Several combinations significantly outperform expectations.
+
+Patterns emerge:
+
+- Mobility-based pairings  
+- Scaling cores with structural support  
+- Tempo anchors forming flexible compositions  
+
+These aren’t just strong heroes.  
+They’re structurally compatible.
 
 ---
 
-## 5. Patch Enablers
+## Patch Enablers: Who Defines the Meta?
+
+Some heroes don’t just win — they elevate others.
 
 ![Top Enablers](images/enablers.png)
 
-Heroes like Razor and Drow Ranger consistently amplify teammate performance, suggesting they act as structural anchors in the patch.
+Razor emerges as the strongest synergy anchor in the patch.
+
+Other high-ranking enablers include:
+- Drow Ranger  
+- Omniknight  
+- Invoker  
+- Chaos Knight  
+
+These heroes consistently form statistically significant pairings across diverse teammates.
+
+They don’t just fit into drafts — they shape them.
 
 ---
 
-## 6. Countering the Meta Anchor
+## Countering the Meta Anchor
+
+Every dominant hero has weaknesses.
 
 ![Razor Counters](images/razor_counters.png)
 
-While Razor defines the patch, burst and lockdown heroes significantly suppress his winrate.
+While Razor thrives in sustained engagements, burst-heavy and lockdown heroes significantly reduce his winrate.
+
+Notable counters include:
+- Pudge  
+- Legion Commander  
+- Invoker  
+- Drow Ranger  
+
+The data suggests that while the patch rewards tempo dominance, it remains vulnerable to decisive control and single-target pressure.
 
 ---
 
-## 7. Conclusion
+## Final Takeaways
 
-This analysis reveals:
+From 250,000 matches, three structural patterns emerge:
 
-- The patch favors structured scaling compositions.
-- Certain heroes act as synergy anchors.
-- Even dominant heroes have statistically reliable counters.
+1. The patch is balanced at an individual hero level.
+2. True power lies in statistically significant synergy.
+3. Meta-defining heroes can still be strategically countered.
 
+The current patch favors structured scaling and tempo control — but only when drafts are built intelligently.
+
+Full code and analysis available in the repository.
